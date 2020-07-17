@@ -31,7 +31,7 @@ else
     echo "Exporting ip =$ip into the shell"
     export ip=$ip
     echo -e "[*] Beginning ${green}Nmap Scan${nc}"
-    nmap -T4 -A $ip -oN nmap/nmap_initial.txt > /dev/null
+    nmap -T3 -Sv -A $ip -oN nmap/nmap_initial.txt 2>/dev/null
     echo -e "[+] ${green}Nmap Scan${nc} completed"
     echo -e "[+] Nmap Scan result stored in ${green}./nmap/nmap_initial.txt${nc}"
     echo -e "[*] Would you like to view the scan results (${blue}Yes[y]${nc} & ${red}No[n]${nc})?"
