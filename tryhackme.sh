@@ -27,9 +27,11 @@ else
         mkdir nmap
         echo -e "   [+] ${green}Nmap directory${nc} created succesfully"
     fi
-
+    
+    echo "Exporting ip =$ip into the shell"
+    export ip=$ip
     echo -e "[*] Beginning ${green}Nmap Scan${nc}"
-    # nmap -T4 -A $ip -oN nmap/nmap_initial.txt > /dev/null
+    nmap -T4 -A $ip -oN nmap/nmap_initial.txt > /dev/null
     echo -e "[+] ${green}Nmap Scan${nc} completed"
     echo -e "[+] Nmap Scan result stored in ${green}./nmap/nmap_initial.txt${nc}"
     echo -e "[*] Would you like to view the scan results (${blue}Yes[y]${nc} & ${red}No[n]${nc})?"
@@ -71,7 +73,7 @@ else
                 if [ -z $wordlist ]; then
                     wordlist="/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt"
                 fi
-                gobuster dir -w $wordlist -u http://$ip -o gobuster/gobuster_initial.txt > /dev/null
+                gobuster dir -w $wordlist -u http://$ip -o gobuster/gobuster_initial.txt 2>/dev/null
                 echo -e "[+] ${green}Gobuster Scan${nc} completed"
                 echo -e "[+] Gobuster Scan result stored in ${green}./gobuster/gobuster_initial.txt${nc}"
                 echo "--------------------------------------------------------------"
