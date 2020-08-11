@@ -28,8 +28,8 @@ else
         echo -e "   [+] ${green}Nmap directory${nc} created succesfully"
     fi
     
-    echo "Exporting ip =$ip into the shell"
-    export ip=$ip
+    #echo "Exporting ip =$ip into the shell"
+    #export ip=$ip
     echo -e "[*] Beginning ${green}Nmap Scan${nc}"
     nmap -T3 -Sv -A $ip -oN nmap/nmap_initial.txt 2>/dev/null
     echo -e "[+] ${green}Nmap Scan${nc} completed"
